@@ -4,17 +4,17 @@
 from random import randint
 
 #funzione per eseguire le funzionalità dell'esercizio
-def subList (n, list):
+def subList (n, base_list):
     
     #controllo che n sia minore della lunghezza della lista
-    if len(list)>n:
+    if len(base_list)>n:
         #inizializzazione nuova lista
         new_list = []
         end = 0
         
         #riempio la nuova lista
         while end < n:
-            new_list.append(list[end])
+            new_list.append(base_list[end])
             end +=1
         
         #scelta dell'operazione
@@ -30,29 +30,30 @@ def subList (n, list):
             case 3:
                 #faccio la comparazione delle due liste
                 set_new = set(new_list)
-                set_ori = set(list)
+                set_ori = set(base_list)
                 return set_ori.difference(set_new)
             case _:
                 return False
     else:
         return False
-        
+
+#in caso non si inserisca una lista in input      
 def subList_withoutList (n):
     
     #inizializzazione nuova lista con numeri casuali
     
     new_list = []
     end = 0
-    list = []
+    base_list = []
     
     #creo la lista iniziale con valori random
-    for n in range(randint(0, n+10)):
-        list.append(randint(0, n*2))
+    for num in range(n+1):
+        base_list.append(randint(0, n*2))
     
     #riempio la nuova lista
-        while end < n:
-            new_list.append(list[end])
-            end +=1
+    while end < n:
+        new_list.append(base_list[end])
+        end +=1
     
     #scelta dell'operazione
     chooice = int(input("Scegliere una delle seguenti operazioni: \n 1. Restituire la sottolista \n 2. Eliminare i duplicati della sottolista\n 3. Verificare gli elementi diversi della sottolista \n"))
@@ -67,11 +68,11 @@ def subList_withoutList (n):
         case 3:
             #faccio la comparazione delle due liste
             set_new = set(new_list)
-            set_ori = set(list)
+            set_ori = set(base_list)
             return set_ori.difference(set_new)
         case _:
             return False
     
-x = subList(20, [9, 2, 2, 4, 5, 1, 3, 4])
+x = subList(4, [9, 2, 2, 4, 5, 1, 3, 4])
 
 print(x)
