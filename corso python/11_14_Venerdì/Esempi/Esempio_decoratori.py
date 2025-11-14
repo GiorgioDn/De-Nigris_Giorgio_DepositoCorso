@@ -11,4 +11,31 @@ def decoratore(funzione):
 def saluta():
     print("Ciao")
 
+#lancio la funzione saluta modificata dal wrapper
 saluta()
+
+print()
+
+#decoratore con argomenti
+def decoratore_con_argomenti(funzione):
+    def wrapper(*args, **kwargs):
+        print ("Prima")
+        risultato = funzione(*args, **kwargs)
+        print("Dopo")
+        return risultato
+    return wrapper
+
+@decoratore_con_argomenti
+def somma(a, b):
+    print(a + b)
+    return a + b
+
+#utilizzo lo stesso wrapper una funzione con più parametri
+@decoratore_con_argomenti
+def sommaMultipla(a, b, c, d):
+    print(a + b + c + d)
+    return a + b + c + d
+
+print("Il risultato è:", somma(4, 5))
+
+print("Il risultato è:", sommaMultipla(1, 2, 4  , 3))

@@ -1,8 +1,9 @@
 #definisco la funzione fibonacci ricorsiva che restituise solo l'ultimo elemento
 def fibonacci_ricorsiva(n):
 
+    #ritorno come valore -1 in caso di errore per eventuali if
     if n < 0:
-        return False
+        return -1
     elif n< 2:
         return n
     else:
