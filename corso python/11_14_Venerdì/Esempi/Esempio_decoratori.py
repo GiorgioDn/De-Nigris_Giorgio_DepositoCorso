@@ -38,4 +38,18 @@ def sommaMultipla(a, b, c, d):
 
 print("Il risultato è:", somma(4, 5))
 
-print("Il risultato è:", sommaMultipla(1, 2, 4  , 3))
+print("Il risultato è:", sommaMultipla(1, 2, 4, 3))
+
+def logger(funzione):
+    def wrapper(*args, **kwargs):
+        print(f"Chiama a {funzione.__name__} con argomenti: {args} e {kwargs}")
+        risultato = funzione (*args, **kwargs)
+        print(f"Risultato di {funzione.__name__}: {risultato}")
+        return risultato
+    return wrapper
+
+@logger
+def moltiplica (a, b):
+    return a*b
+
+moltiplica (3, 5)
