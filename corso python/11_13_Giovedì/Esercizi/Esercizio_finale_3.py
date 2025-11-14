@@ -1,4 +1,4 @@
-#faccio selezionare all'utente i due numeri per lo step ed il massimo
+#faccio selezionare all'utente i tre numeri per lo step, il massimo ed il numero di visualizzazioni per riga
 print("Scegliere il numero massimo, gli step del range ed i numeri visualizzati per riga")
 max = int(input("Massimo: "))
 step = int(input("Step: "))
