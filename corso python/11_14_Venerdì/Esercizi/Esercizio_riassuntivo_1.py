@@ -2,7 +2,7 @@
     Creare una funzione che prende un intero positivo per generare una sottolista dei primi n elementi di una lista definita dall'utente, inoltre la funzione deve far scegliere se restituire la sottolista, eliminare i duplicati o verificare le eventuali differenze tra la lista e la sottolista.
 """
 #funzione per eseguire le funzionalità dell'esercizio
-def allInOne (n, list):
+def subList (n, list):
     
     #inizializzazione nuova lista
     new_list = []
@@ -24,15 +24,13 @@ def allInOne (n, list):
             list_without_double = set(new_list)
             return list_without_double
         case 3:
-            #vedere perchè mi ritorna set() e non la differenza 
+            #faccio la comparazione delle due liste
             set_new = set(new_list)
-            print(set_new)
             set_ori = set(list)
-            print(set_ori)
-            return set_new.difference(set_ori)
+            return set_ori.difference(set_new)
         case _:
             return False
     
-x = allInOne(4, [9, 2, 2, 4, 5, 1, 3, 4])
+x = subList(4, [9, 2, 2, 4, 5, 1, 3, 4])
 
 print(x)
