@@ -13,10 +13,11 @@ def d_controllo_negativi(funzione):
     return wrapper
 
 #DA TESTARE
-#eseguire la funzione in base alla lista
+#eseguire la funzione in base se viene restituita la lista o no
 def d_controllo_lista(funzione):
     def wrapper(*args, **kwargs):
         #richiede che il secondo argomento di una funzione sia una collezione
+        
         if len(args[1]) !=0:
             if funzione.__name__ == "subList":
                 result = funzione(*args, **kwargs)
@@ -29,7 +30,7 @@ def d_controllo_lista(funzione):
 
 #esegue due volte la funzione (?)
 @d_controllo_negativi
-def subList (n, list):
+def subList_on_decoration (n, list):
     
     #inizializzazione nuova lista
     new_list = []
@@ -58,6 +59,6 @@ def subList (n, list):
         case _:
             return False
     
-x = subList(-4, [9, 2, 2, 4, 5, 1, 3, 4])
+x = subList_on_decoration(-4, [9, 2, 2, 4, 5, 1, 3, 4])
 
 print(x)
